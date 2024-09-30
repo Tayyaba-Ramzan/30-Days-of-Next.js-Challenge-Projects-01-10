@@ -124,7 +124,7 @@ export default function WeatherWidget() {
   return (
   <div className="flex justify-center items-center min-h-screen p-4 sm:p-6">
     {/* Center the card within the screen */}
-    <Card className="w-full max-w-lg sm:max-w-md mx-auto text-center bg-white shadow-md rounded-3xl p-4 sm:p-6">
+    <Card className="w-full max-w-lg sm:max-w-md mx-auto text-center bg-white shadow-md rounded-3xl p-2 sm:p-6">
       {/* Card header with title and description */}
       <CardHeader>
         <CardTitle className="text-xl sm:text-2xl font-semibold">Weather Widget</CardTitle>
