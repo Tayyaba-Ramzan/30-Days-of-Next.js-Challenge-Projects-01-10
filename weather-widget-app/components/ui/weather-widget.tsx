@@ -122,48 +122,46 @@ export default function WeatherWidget() {
   }
 
   return (
-  <div className="flex justify-center items-center min-h-screen p-2 sm:p-6">
+  <div className="flex justify-center items-center min-h-screen p-2 sm:p-4 md:p-6">
     {/* Center the card within the screen */}
-    <Card className="w-full max-w-lg sm:max-w-md mx-auto text-center bg-white shadow-md rounded-3xl p-2 sm:p-4">
+    <Card className="w-full max-w-lg sm:max-w-md mx-auto text-center bg-white shadow-md rounded-3xl p-3 sm:p-4 md:p-6">
       {/* Card header with title and description */}
       <CardHeader>
-        <CardTitle className="text-xl sm:text-2xl font-semibold">Weather Widget</CardTitle>
-        <CardDescription className="text-gray-600 sm:text-base text-sm">
+        <CardTitle className="text-lg sm:text-xl font-semibold">Weather Widget</CardTitle>
+        <CardDescription className="text-gray-600 text-xs sm:text-sm md:text-base">
           Search for the current weather conditions in your city.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <form onSubmit={handleSearch} className="flex items-center gap-2">
+        <form onSubmit={handleSearch} className="flex items-center gap-1 sm:gap-2">
           <Input
             type="text"
             placeholder="Enter a city name"
             value={location}
-            onChange={(e: ChangeEvent<HTMLInputElement>) =>
-              setLocation(e.target.value)
-            }
-            className="w-full sm:text-base text-sm"
+            onChange={(e: ChangeEvent<HTMLInputElement>) => setLocation(e.target.value)}
+            className="w-full text-xs sm:text-sm md:text-base"
           />
           <Button
             type="submit"
-            className="bg-black text-white hover:bg-blue-300 hover:text-black transition duration-300 font-semibold px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base"
+            className="bg-black text-white hover:bg-blue-300 hover:text-black transition duration-300 font-semibold px-2 py-1 sm:px-4 sm:py-2 md:px-6 md:py-3 text-xs sm:text-sm md:text-base"
             disabled={isLoading}
           >
             {isLoading ? "Loading..." : "Search"}{" "}
           </Button>
         </form>
-        {error && <div className="mt-4 text-red-500 text-sm sm:text-base">{error}</div>}
+        {error && <div className="mt-2 text-red-500 text-xs sm:text-sm">{error}</div>}
         {weather && (
-          <div className="mt-4 grid gap-2 text-black">
-            <div className="flex items-center gap-2 text-sm sm:text-base">
-              <ThermometerIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+          <div className="mt-3 grid gap-1 sm:gap-2 text-black">
+            <div className="flex items-center gap-1 text-xs sm:text-sm md:text-base">
+              <ThermometerIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               {getTemperatureMessage(weather.temperature, weather.unit)}
             </div>
-            <div className="flex items-center gap-2 text-sm sm:text-base">
-              <CloudIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="flex items-center gap-1 text-xs sm:text-sm md:text-base">
+              <CloudIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               <div>{getWeatherMessage(weather.description)}</div>
             </div>
-            <div className="flex items-center gap-2 text-sm sm:text-base">
-              <MapPinIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            <div className="flex items-center gap-1 text-xs sm:text-sm md:text-base">
+              <MapPinIcon className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
               <div>{getLocationMessage(weather.location)}</div>
             </div>
           </div>
@@ -172,3 +170,4 @@ export default function WeatherWidget() {
     </Card>
   </div>
 );
+
