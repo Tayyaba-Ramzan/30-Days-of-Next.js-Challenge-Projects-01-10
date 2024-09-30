@@ -28,41 +28,41 @@ export default function WeatherWidget() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleSearch = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const trimmedLocation = location.trim();
-    if (trimmedLocation === "") {
-      setError("Please enter a valid location."); 
-      setWeather(null); 
-      return;
+  e.preventDefault();
+  const trimmedLocation = location.trim();
+  if (trimmedLocation === "") {
+    setError("Please enter a valid location.");
+    setWeather(null);
+    return;
+  }
+
+  setIsLoading(true);
+  setError(null);
+
+  try {
+    const response = await fetch(
+      `https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${trimmedLocation}`
+    );
+    if (!response.ok) {
+      throw new Error("City not found.");
     }
-
-    setIsLoading(true); 
-    setError(null); 
-
-    try {
-      const response = await fetch(
-        ` https://api.weatherapi.com/v1/current.json?key=${process.env.NEXT_PUBLIC_WEATHER_API_KEY}&q=${trimmedLocation}`
-      );
-      if (!response.ok) {
-        throw new Error("City not found.");
-      }
-      const data = await response.json();
-      const weatherData: WeatherData = {
-        temperature: data.current.temp_c, 
-        description: data.current.condition.text, 
-        location: data.location.name, 
-        unit: "C", 
-      };
-      setWeather(weatherData);
-    } catch (error) {
-      console.error("Error fetching weather data:", error);
-      setError("City not found. Please try again."); 
-      setWeather(null); 
-    } finally {
-      setIsLoading(false); 
-    }
-  };
-
+    const data = await response.json();
+    const weatherData: WeatherData = {
+      temperature: data.current.temp_c,
+      description: data.current.condition.text,
+      location: data.location.name,
+      unit: "C",
+    };
+    setWeather(weatherData);
+  } catch (error) {
+    console.error("Error fetching weather data:", error);
+    setError("City not found. Please try again.");
+    setWeather(null);
+  } finally {
+    setIsLoading(false);
+  }
+};
+  
   function getTemperatureMessage(temperature: number, unit: string): string {
     if (unit === "C") {
       if (temperature < 0) {
