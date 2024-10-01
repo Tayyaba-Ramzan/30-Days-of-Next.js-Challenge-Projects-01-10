@@ -116,7 +116,7 @@ export default function WeatherWidget() {
 
   return (
     <div className="flex justify-center items-center h-screen">
-      <Card className="w-[90%] max-w-md mx-auto text-center mb-30 bg-transparent border-black rounded-3xl">
+      <Card className="w-[90%] max-w-md mx-auto text-center mb-30 bg-transparent border-black rounded-2xl">
       <Image
       src={"/sun.png"}
       alt="sun"
