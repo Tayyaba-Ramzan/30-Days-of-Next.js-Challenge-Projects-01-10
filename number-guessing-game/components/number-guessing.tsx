@@ -68,13 +68,13 @@ export default function NumberGuessing(): JSX.Element {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-gray-800 to-black">
-      <div className="bg bg-transparent rounded-3xl shadow-lg p-8 w-[90%] max-w-md border-4 mb-8">
-        <Image
+    <Image
       src={"/girl.png"}
       alt="Girl"
       width={300}
       height={300}
       />
+      <div className="bg bg-transparent rounded-3xl shadow-lg p-8 w-[90%] max-w-md border-4">
         <h1 className="text-3xl font-bold text-center mb-2 text-white">
           Number Guessing Game
         </h1>
