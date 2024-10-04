@@ -167,7 +167,7 @@ export default function WeatherWidget() {
             </div>
           )}
         </CardContent>
-        <button className="bg-transparent border-black font-semibold mt-5 italic text-2xl text-white mb-2">Created by Tayyba Ramzan</button>
+        <button className="bg-transparent border-black font-semibold mt-5 italic text-2xl text-white mb-2">Created by Tayyaba Ramzan</button>
       </Card>
     </div>
   );
