@@ -51,13 +51,6 @@ export default function CalculatorComponent() {
     <div className="flex flex-col items-center justify-center h-screen bg-white dark:bg-gray-900">
       <Card className="w-[90%] max-w-md p-6 bg-black dark:bg-gray-800 shadow-lg rounded-3xl border-4">
         <CardHeader>
-          <Image
-      src={"/calculator.png"}
-      alt="Calculator"
-      width={300}
-      height={300}
-      className="mt-24"
-      />
           <CardTitle className="text-2xl font-bold text-center text-white">
             Simple Calculator
           </CardTitle>
