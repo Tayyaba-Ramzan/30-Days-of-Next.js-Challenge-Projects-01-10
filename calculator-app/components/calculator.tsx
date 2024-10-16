@@ -48,7 +48,7 @@ export default function CalculatorComponent() {
 
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen bg-black-100 dark:bg-gray-900 mb-32">
+    <div className="flex flex-col items-center justify-center h-screen bg-black-100 dark:bg-gray-900">
 
       <Card className="w-[90%] max-w-md p-6 bg-transparent dark:bg-gray-800 shadow-lg rounded-3xl">
 
