@@ -33,7 +33,7 @@ export default function RandomJokeComponent() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen bg-gradient-to-br from-[#ffa500] to-[#ff6b6b] p-4">
-      <div className="bg-white rounded-2xl shadow-lg p-8 w-full max-w-md">
+      <div className="bg-transparent rounded-2xl shadow-lg p-8 w-full max-w-md">
         <div className="flex justify-center">
           <Image
             src={"/joke.png"}
