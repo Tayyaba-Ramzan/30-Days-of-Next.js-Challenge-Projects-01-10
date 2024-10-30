@@ -1,9 +1,7 @@
-"use client"; // Enables client-side rendering for this component
+"use client"; 
 
-// Import necessary hooks from React
 import { useState, ChangeEvent } from "react";
 
-// Import custom UI components from the UI directory
 import {
   Card,
   CardHeader,
@@ -16,27 +14,22 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
-// Default export of the TipCalculatorComponent function
 export default function TipCalculatorComponent() {
-  // State hooks for managing the bill amount, tip percentage, tip amount, and total amount
   const [billAmount, setBillAmount] = useState<number | null>(null);
   const [tipPercentage, setTipPercentage] = useState<number | null>(null);
   const [tipAmount, setTipAmount] = useState<number>(0);
   const [totalAmount, setTotalAmount] = useState<number>(0);
 
-  // Handler for updating bill amount state on input change
   const handleBillAmountChange = (e: ChangeEvent<HTMLInputElement>): void => {
     setBillAmount(parseFloat(e.target.value));
   };
 
-  // Handler for updating tip percentage state on input change
   const handleTipPercentageChange = (
     e: ChangeEvent<HTMLInputElement>
   ): void => {
     setTipPercentage(parseFloat(e.target.value));
   };
 
-  // Function to calculate the tip and total amounts
   const calculateTip = (): void => {
     if (billAmount !== null && tipPercentage !== null) {
       const tip = billAmount * (tipPercentage / 100); // Calculate the tip amount
@@ -45,13 +38,10 @@ export default function TipCalculatorComponent() {
     }
   };
 
-  // JSX return statement rendering the tip calculator UI
   return (
     <div className="flex flex-col items-center justify-center min-h-screen dark:bg-gray-900">
-      {/* Center the tip calculator card within the screen */}
       <Card className="w-[90%] max-w-md p-6 bg-black dark:bg-gray-800 shadow-lg rounded-lg">
         <CardHeader>
-          {/* Header with title and description */}
           <CardTitle className="text-center text-5xl text-white rounded-3xl">Tip Calculator</CardTitle>
           <CardDescription className="text-white">
             Enter the bill amount and tip percentage to calculate the tip and
@@ -59,7 +49,6 @@ export default function TipCalculatorComponent() {
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
-          {/* Input for bill amount */}
           <div className="grid gap-2 text-white">
             <Label htmlFor="bill-amount">Bill Amount</Label>
             <Input
@@ -70,7 +59,6 @@ export default function TipCalculatorComponent() {
               onChange={handleBillAmountChange}
             />
           </div>
-          {/* Input for tip percentage */}
           <div className="grid gap-2 text-white">
             <Label htmlFor="tip-percentage">Tip Percentage</Label>
             <Input
@@ -81,16 +69,13 @@ export default function TipCalculatorComponent() {
               onChange={handleTipPercentageChange}
             />
           </div>
-          {/* Button to calculate tip */}
-          <Button onClick={calculateTip} className="bg-white text-black">Calculate</Button>
+          <Button onClick={calculateTip} className="bg-white text-black hover:bg-300 hover:text-black">Calculate</Button>
         </CardContent>
         <CardFooter className="grid gap-2">
-          {/* Display the calculated tip amount */}
           <div className="flex items-center justify-between text-white">
             <span>Tip Amount:</span>
             <span className="font-bold">${tipAmount.toFixed(2)}</span>
           </div>
-          {/* Display the calculated total amount */}
           <div className="flex items-center justify-between text-white">
             <span>Total Amount:</span>
             <span className="font-bold">${totalAmount.toFixed(2)}</span>
