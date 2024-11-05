@@ -63,7 +63,7 @@ export default function GeneratePassword() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
-            <Card className="w-[full] max-w-md p-2 bg-transparent rounded-xl border border-green-800">
+            <Card className="w-[95%] max-w-md p-2 bg-transparent rounded-xl border border-green-800">
 
                 <div className="space-y-6">
                     <div className="text-center">
